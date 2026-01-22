@@ -30,7 +30,7 @@ export default function ContactPage() {
                         <div className="space-y-8">
                             {[
                                 { title: "Address", lines: ["123 Luxury Avenue", "Design District, NY 10012"] },
-                                { title: "Contact", lines: ["+1 (555) 123-4567", "hello@helioslighting.com"] },
+                                { title: "Contact", lines: ["+91 7060478080", "hello@helioslighting.com"] },
                                 { title: "Hours", lines: ["Mon - Sat: 10:00 AM - 7:00 PM", "Sun: By Appointment"] }
                             ].map((item, i) => (
                                 <motion.div

@@ -55,7 +55,7 @@ export default function Footer() {
                     <address className="not-italic text-ivory/70 text-sm space-y-2 font-sans">
                         <p>123 Luxury Avenue</p>
                         <p>Design District, NY 10012</p>
-                        <p className="pt-2">+1 (555) 123-4567</p>
+                        <p className="pt-2">+91 7060478080</p>
                         <p>hello@helioslighting.com</p>
                     </address>
                 </div>

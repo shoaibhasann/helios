@@ -6,7 +6,7 @@ import Collections from "@/components/Collections";
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-ivory">
+    <main className="min-h-screen bg-charcoal">
       <Header />
       <Hero />
       <CategoryShowcase />

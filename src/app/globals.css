@@ -1,22 +1,47 @@
 @import "tailwindcss";
 
 @theme inline {
-  --color-ivory: #F9F8F6;
-  --color-charcoal: #2C2C2C;
-  --color-sage: #7C8C74;
+  --color-ivory: #F4F3EF;
+  --color-charcoal: #0B0B0B;
+  /* deeper luxury black */
+  --color-charcoal-soft: #141414;
+  --color-sage: #8A9A8F;
+
   --color-gold: #D4AF37;
-  
+  --color-gold-light: #E6C867;
+  --color-gold-dark: #9E8226;
+
   --font-serif: var(--font-serif);
   --font-sans: var(--font-sans);
 }
 
-body {
-  background-color: var(--color-ivory);
-  color: var(--color-charcoal);
-  font-family: var(--font-sans);
+@layer utilities {
+
+  /* Hide scrollbar for Chrome, Safari and Opera */
+  .no-scrollbar::-webkit-scrollbar {
+    display: none;
+  }
+
+  /* Hide scrollbar for IE, Edge and Firefox */
+  .no-scrollbar {
+    -ms-overflow-style: none;
+    /* IE and Edge */
+    scrollbar-width: none;
+    /* Firefox */
+  }
 }
 
-/* Custom Utilities if needed later */
-.text-balance {
-  text-wrap: balance;
+body {
+  background-color: var(--color-charcoal);
+  color: var(--color-ivory);
+  font-family: var(--font-sans);
+  -webkit-font-smoothing: antialiased;
+}
+
+/* Subtle luxury grain (optional but 🔥) */
+footer {
+  background-image: radial-gradient(rgba(255, 255, 255, 0.03) 1px,
+      transparent 1px);
+  background-size: 3px 3px;
+  z-index: 0;
 }

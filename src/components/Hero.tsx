@@ -32,15 +32,7 @@ export default function Hero() {
             </motion.div>
 
             {/* Content */}
-            <div className="relative z-10 max-w-4xl mx-auto text-center px-6">
-                <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.5 }}
-                    className="text-ivory/90 uppercase tracking-[0.35em] text-sm md:text-base mb-5"
-                >
-                    Premium Lighting Showroom
-                </motion.p>
+            <div className="relative z-10 max-w-4xl mx-auto text-center py-20 px-6">
 
                 <motion.h1
                     initial={{ opacity: 0, y: 30 }}
@@ -49,7 +41,7 @@ export default function Hero() {
                     className="text-5xl md:text-7xl lg:text-8xl font-serif text-ivory leading-tight mb-6 drop-shadow-[0_12px_35px_rgba(0,0,0,0.45)]"
                 >
                     The Art of <br />
-                    <span className="italic text-gold">Illumination</span>
+                    <span className="italic text-gold">Lighting</span>
                 </motion.h1>
 
                 <motion.p
@@ -58,8 +50,7 @@ export default function Hero() {
                     transition={{ duration: 1, delay: 1.2 }}
                     className="text-slate-200 text-lg md:text-xl font-light mb-12 max-w-2xl mx-auto leading-relaxed"
                 >
-                    Discover a curated collection of handcrafted chandeliers, lanterns, and
-                    modern fixtures designed to transform your space.
+                    Refined collections of crafted chandeliers, lanterns, and modern fixtures designed to enhance the beauty and balance of your space.
                 </motion.p>
 
                 <motion.div
@@ -68,10 +59,10 @@ export default function Hero() {
                     transition={{ duration: 0.8, delay: 1.5 }}
                 >
                     <Link
-                        href="/contact"
+                        href="/collections"
                         className="inline-block px-10 py-4 bg-ivory text-charcoal font-medium uppercase tracking-widest text-sm transition-all duration-300 hover:bg-gold hover:text-ivory hover:scale-105"
                     >
-                        Visit Our Showroom
+                        Explore Collections
                     </Link>
                 </motion.div>
             </div>

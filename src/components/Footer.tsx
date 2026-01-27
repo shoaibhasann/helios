@@ -3,46 +3,48 @@ import { Instagram, Facebook, Twitter, Linkedin } from "lucide-react";
 
 export default function Footer() {
     return (
-        <footer className="bg-black text-ivory px-6 md:px-12 pt-20 pb-10">
+        <footer className="bg-charcoal border-t border-white/5 text-ivory px-6 md:px-12 pt-20 pb-10">
             <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-12">
                 {/* Brand */}
                 <div className="md:col-span-2">
-                    <h2 className="font-serif text-2xl md:text-3xl font-bold mb-4 tracking-tight">
+                    <h2 className="font-serif text-gold text-2xl md:text-3xl font-bold mb-4 tracking-tight">
                         HELIOS
                     </h2>
-                    <p className="text-ivory/70 max-w-sm font-sans text-sm leading-relaxed">
+                    <p className="text-ivory/80 max-w-sm font-sans text-sm leading-relaxed">
                         Illuminating spaces with timeless elegance. Visit our showroom to
                         experience the warmth and craftsmanship of our premium lighting
                         collection.
                     </p>
 
+                    <p className="max-w-sm font-sans text-sm leading-relaxed mt-6 text-gold">Follow Us</p>
+
                     {/* Socials */}
-                    <div className="flex items-center gap-4 mt-6">
+                    <div className="flex items-center gap-4 my-2">
                         <a
                             href="#"
                             aria-label="Instagram"
-                            className="text-ivory/70 hover:text-gold transition-colors"
+                            className="text-ivory/80 hover:text-gold transition-colors"
                         >
                             <Instagram size={18} />
                         </a>
                         <a
                             href="#"
                             aria-label="Facebook"
-                            className="text-ivory/70 hover:text-gold transition-colors"
+                            className="text-ivory/80 hover:text-gold transition-colors"
                         >
                             <Facebook size={18} />
                         </a>
                         <a
                             href="#"
                             aria-label="Twitter"
-                            className="text-ivory/70 hover:text-gold transition-colors"
+                            className="text-ivory/80 hover:text-gold transition-colors"
                         >
                             <Twitter size={18} />
                         </a>
                         <a
                             href="#"
                             aria-label="LinkedIn"
-                            className="text-ivory/70 hover:text-gold transition-colors"
+                            className="text-ivory/80 hover:text-gold transition-colors"
                         >
                             <Linkedin size={18} />
                         </a>
@@ -51,19 +53,19 @@ export default function Footer() {
 
                 {/* Visit */}
                 <div>
-                    <h3 className="font-serif text-lg mb-4">Visit Us</h3>
-                    <address className="not-italic text-ivory/70 text-sm space-y-2 font-sans">
+                    <h3 className="font-serif text-lg mb-4 text-gold">Visit Us</h3>
+                    <address className="not-italic text-ivory/80 text-sm space-y-2 font-sans">
                         <p>123 Luxury Avenue</p>
                         <p>Design District, NY 10012</p>
-                        <p className="pt-2">+91 7060478080</p>
-                        <p>hello@helioslighting.com</p>
+                        <p className="pt-2">+91 7818906577</p>
+                        <p>hi@iamshoaib.tech</p>
                     </address>
                 </div>
 
                 {/* Explore */}
                 <div>
-                    <h3 className="font-serif text-lg mb-4">Explore</h3>
-                    <ul className="space-y-2 text-sm text-ivory/70 font-sans">
+                    <h3 className="font-serif text-lg mb-4 text-gold">Explore</h3>
+                    <ul className="space-y-2 text-sm text-ivory/80 font-sans">
                         <li>
                             <Link href="/" className="hover:text-gold transition-colors">
                                 Home
@@ -88,7 +90,7 @@ export default function Footer() {
                 <p>
                     &copy; {new Date().getFullYear()} Helios Lighting. All rights reserved.
                 </p>
-                <p className="mt-2 md:mt-0">Designed for Excellence.</p>
+                <a href="https://iamshoaib.tech" target="_blank" rel="noopener noreferrer" className="mt-2 md:mt-0 hover:underline">Made with ❤️ by Shoaib.</a>
             </div>
         </footer>
     );

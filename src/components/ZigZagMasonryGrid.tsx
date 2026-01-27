@@ -29,7 +29,31 @@ export default function ZigZagMasonryGrid({
     }, [images]);
 
     return (
-        <section className="w-full py-16">
+        <section className="w-full py-16 bg-charcoal">
+            <section className="relative py-24 bg-charcoal">
+                <div className="max-w-4xl mx-auto px-6 text-center">
+
+                    {/* Heading */}
+                    <h3 className="font-serif text-3xl md:text-4xl text-ivory mb-6 tracking-wide">
+                        Crafted. Installed. Experienced.
+                    </h3>
+
+                    {/* Subheading */}
+                    <p className="text-ivory/70 text-lg leading-relaxed max-w-3xl mx-auto mb-4">
+                        Real installations from our showroom and client projects — each piece
+                        designed, finished, and illuminated to perfection.
+                    </p>
+
+                    {/* Micro trust line */}
+                    <span className="block text-xs uppercase tracking-[0.3em] text-sage mt-6">
+                        Photographed on site · No renders
+                    </span>
+
+                    {/* Divider */}
+                    <div className="mt-12 w-full md:w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent mx-auto" />
+                </div>
+            </section>
+
             <div
                 className="
           mx-auto max-w-7xl
@@ -55,7 +79,7 @@ export default function ZigZagMasonryGrid({
               break-inside-avoid
               rounded-2xl
               overflow-hidden
-              bg-ivory
+              bg-white/5
               shadow-sm
               hover:shadow-md
               transition-shadow

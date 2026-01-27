@@ -32,7 +32,7 @@ export default function ContactForm() {
         <form onSubmit={handleSubmit} className="space-y-6">
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                 <div>
-                    <label htmlFor="name" className="block text-xs uppercase tracking-widest text-charcoal/60 mb-2">Name</label>
+                    <label htmlFor="name" className="block text-xs uppercase tracking-widest text-ivory/60 mb-2">Name</label>
                     <input
                         type="text"
                         id="name"
@@ -40,12 +40,12 @@ export default function ContactForm() {
                         required
                         value={formData.name}
                         onChange={handleChange}
-                        className="w-full bg-transparent border-b border-charcoal/20 py-3 text-charcoal focus:outline-none focus:border-gold transition-colors"
+                        className="w-full bg-transparent border-b border-ivory/20 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
                         placeholder="John Doe"
                     />
                 </div>
                 <div>
-                    <label htmlFor="email" className="block text-xs uppercase tracking-widest text-charcoal/60 mb-2">Email</label>
+                    <label htmlFor="email" className="block text-xs uppercase tracking-widest text-ivory/60 mb-2">Email</label>
                     <input
                         type="email"
                         id="email"
@@ -53,27 +53,27 @@ export default function ContactForm() {
                         required
                         value={formData.email}
                         onChange={handleChange}
-                        className="w-full bg-transparent border-b border-charcoal/20 py-3 text-charcoal focus:outline-none focus:border-gold transition-colors"
+                        className="w-full bg-transparent border-b border-ivory/20 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
                         placeholder="john@example.com"
                     />
                 </div>
             </div>
 
             <div>
-                <label htmlFor="phone" className="block text-xs uppercase tracking-widest text-charcoal/60 mb-2">Phone</label>
+                <label htmlFor="phone" className="block text-xs uppercase tracking-widest text-ivory/60 mb-2">Phone</label>
                 <input
                     type="tel"
                     id="phone"
                     name="phone"
                     value={formData.phone}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-charcoal/20 py-3 text-charcoal focus:outline-none focus:border-gold transition-colors"
-                    placeholder="+1 (555) 000-0000"
+                    className="w-full bg-transparent border-b border-ivory/20 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
+                    placeholder="+91 (00000)-(00000)"
                 />
             </div>
 
             <div>
-                <label htmlFor="message" className="block text-xs uppercase tracking-widest text-charcoal/60 mb-2">Message</label>
+                <label htmlFor="message" className="block text-xs uppercase tracking-widest text-ivory/60 mb-2">Message</label>
                 <textarea
                     id="message"
                     name="message"
@@ -81,7 +81,7 @@ export default function ContactForm() {
                     required
                     value={formData.message}
                     onChange={handleChange}
-                    className="w-full bg-transparent border-b border-charcoal/20 py-3 text-charcoal focus:outline-none focus:border-gold transition-colors"
+                    className="w-full bg-transparent border-b border-ivory/20 py-3 text-ivory focus:outline-none focus:border-gold transition-colors"
                     placeholder="I am interested in..."
                 />
             </div>
@@ -89,7 +89,7 @@ export default function ContactForm() {
             <button
                 type="submit"
                 disabled={status === "submitting" || status === "success"}
-                className="w-full md:w-auto px-10 py-4 bg-charcoal text-ivory uppercase tracking-widest text-sm hover:bg-gold transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+                className="w-full cursor-pointer md:w-auto px-10 py-4 bg-ivory text-charcoal uppercase tracking-widest text-sm hover:bg-gold hover:text-white transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
             >
                 {status === "submitting" ? "Sending..." : status === "success" ? "Enquiry Sent" : "Send Enquiry"}
             </button>

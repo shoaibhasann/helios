@@ -4,23 +4,20 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect } from "react";
-import {
-    Menu,
-    X,
-    Home,
-    Info,
-    Phone,
-} from "lucide-react";
+import { Home, Info, Phone, Store } from "lucide-react";
 import { usePathname } from "next/navigation";
+import Hamburger from "./Hamburger";
 
 const navLinks = [
     { name: "Home", href: "/" },
+    { name: "Collections", href: "/collections" },
     { name: "About Us", href: "/about" },
     { name: "Contact Us", href: "/contact" },
 ];
 
 const mobileLinks = [
     { name: "Home", href: "/", icon: Home },
+    { name: "Collections", href: "/collections", icon: Store },
     { name: "About Us", href: "/about", icon: Info },
     { name: "Contact Us", href: "/contact", icon: Phone },
 ];
@@ -36,92 +33,85 @@ export default function Header() {
         return () => window.removeEventListener("scroll", handleScroll);
     }, []);
 
-    // Header color logic (DESKTOP + HEADER ONLY)
-    const isLightHeader =
-        scrolled || pathname === "/about" || pathname === "/contact";
-
-    const textColor = isLightHeader ? "text-charcoal" : "text-ivory";
-    const borderColor = isLightHeader ? "border-charcoal" : "border-ivory";
-    const hoverBg = isLightHeader
-        ? "hover:bg-charcoal hover:text-ivory"
-        : "hover:bg-ivory hover:text-charcoal";
+    const headerBg =
+        scrolled || pathname === "/about" || pathname === "/contact"
+            ? "bg-black/80 backdrop-blur-md border-b border-white/10 py-3"
+            : "bg-transparent py-5";
 
     return (
         <>
             {/* ================= HEADER ================= */}
-            <header
-                className={cn(
-                    "fixed top-0 left-0 right-0 z-50 px-6 md:px-12 transition-all duration-500",
-                    isLightHeader
-                        ? "bg-ivory/90 backdrop-blur-md shadow-sm py-3"
-                        : "bg-black/20 backdrop-blur-sm py-5"
-                )}
-            >
-                <div className="max-w-7xl mx-auto flex items-center justify-between">
-                    {/* Logo */}
-                    <Link href="/" className="z-50">
-                        <h1
-                            className={cn(
-                                "font-serif text-2xl md:text-3xl font-bold tracking-tight transition-colors",
-                                textColor
-                            )}
-                        >
-                            HELIOS
-                        </h1>
-                    </Link>
-
-                    {/* Desktop Nav */}
-                    <nav className="hidden md:flex items-center gap-8">
-                        {navLinks.map((link) => (
-                            <Link
-                                key={link.name}
-                                href={link.href}
-                                className={cn(
-                                    "relative text-sm font-medium uppercase tracking-widest transition-colors group",
-                                    textColor
-                                )}
-                            >
-                                {link.name}
-                                <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full" />
-                            </Link>
-                        ))}
-
-                        <Link
-                            href="/contact"
-                            className={cn(
-                                "ml-4 px-6 py-2 text-sm uppercase tracking-wider border transition-all duration-300",
-                                textColor,
-                                borderColor,
-                                hoverBg
-                            )}
-                        >
-                            Visit Showroom
-                        </Link>
-                    </nav>
-
-                    {/* Mobile Button */}
-                    <button
-                        className={cn("md:hidden z-50 transition-colors", textColor)}
-                        onClick={() => setMobileMenuOpen(true)}
-                        aria-label="Open menu"
+            {
+                !mobileMenuOpen && (
+                    <header
+                        className={cn(
+                            "fixed top-0 left-0 right-0 z-[1000] px-6 md:px-12 transition-all duration-500",
+                            headerBg
+                        )}
                     >
-                        <Menu size={28} />
-                    </button>
-                </div>
-            </header>
+                        <div className="max-w-7xl mx-auto flex items-center justify-between">
+                            {/* Logo */}
+                            <Link href="/" className="z-[1001]">
 
-            {/* ================= MOBILE OVERLAY (OUTSIDE HEADER) ================= */}
+
+                                <h1 className="font-serif text-2xl md:text-3xl font-bold tracking-tight text-ivory">
+                                    HELIOS
+                                </h1>
+
+                            </Link>
+
+                            {/* Desktop Nav */}
+                            <nav className="hidden md:flex items-center gap-8">
+                                {navLinks.map((link) => (
+                                    <Link
+                                        key={link.name}
+                                        href={link.href}
+                                        className="relative text-sm font-medium uppercase tracking-widest text-ivory group"
+                                    >
+                                        {link.name}
+                                        <span className="absolute -bottom-1 left-0 w-0 h-[1px] bg-gold transition-all duration-300 group-hover:w-full" />
+                                    </Link>
+                                ))}
+
+                                <Link
+                                    href="/contact"
+                                    className="ml-4 px-6 py-2 text-sm uppercase tracking-wider border border-white/20 text-ivory hover:text-gold transition-colors"
+                                >
+                                    Visit Showroom
+                                </Link>
+                            </nav>
+                        </div>
+                    </header>
+                )
+            }
+
+            {/* Mobile Hamburger */}
+            <button
+                aria-label="Toggle menu"
+                onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+                className="
+              fixed 
+              top-4
+              right-6
+              md:hidden
+              z-[1001]
+            "
+            >
+                <Hamburger open={mobileMenuOpen} />
+            </button>
+
+            {/* ================= MOBILE MENU ================= */}
             <AnimatePresence>
                 {mobileMenuOpen && (
                     <motion.div
-                        className="fixed inset-0 z-[100] md:hidden"
+                        className="fixed inset-0 z-[900] md:hidden pointer-events-none"
                         initial={{ opacity: 0 }}
                         animate={{ opacity: 1 }}
                         exit={{ opacity: 0 }}
                     >
-                        {/* Dark Overlay */}
+                        {/* Overlay */}
                         <div
-                            className="absolute inset-0 bg-black/40"
+                            className="absolute inset-0 bg-black/60 backdrop-blur-sm pointer-events-auto"
                             onClick={() => setMobileMenuOpen(false)}
                         />
 
@@ -133,20 +123,11 @@ export default function Header() {
                             transition={{ duration: 0.35, ease: "easeInOut" }}
                             className="
                 absolute right-0 top-0 h-full w-[80%]
-                bg-ivory
+                bg-charcoal border-l border-white/10
                 flex flex-col items-center justify-center gap-8
+                pointer-events-auto
               "
                         >
-                            {/* Close Button */}
-                            <button
-                                className="absolute top-6 right-6 text-charcoal"
-                                onClick={() => setMobileMenuOpen(false)}
-                                aria-label="Close menu"
-                            >
-                                <X size={28} />
-                            </button>
-
-                            {/* Links */}
                             {mobileLinks.map((link) => {
                                 const Icon = link.icon;
                                 return (
@@ -157,7 +138,7 @@ export default function Header() {
                                         className="
                       flex items-center gap-4
                       text-2xl font-serif
-                      text-charcoal
+                      text-ivory
                       hover:text-gold
                       transition-colors
                     "

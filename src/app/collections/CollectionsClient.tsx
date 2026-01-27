@@ -77,15 +77,11 @@ export default function CollectionsClient() {
 
     useEffect(() => {
         const category = searchParams.get("category");
-
         if (category) {
             const el = document.getElementById(category);
             if (el) {
                 setTimeout(() => {
-                    el.scrollIntoView({
-                        behavior: "smooth",
-                        block: "start",
-                    });
+                    el.scrollIntoView({ behavior: "smooth", block: "start" });
                 }, 300);
             }
         }
@@ -94,12 +90,11 @@ export default function CollectionsClient() {
     return (
         <main className="min-h-screen bg-charcoal text-ivory overflow-hidden">
             <Header />
-
             <div className="h-24" />
 
             <section className="py-20 px-6 md:px-12 max-w-7xl mx-auto space-y-32">
-                {collections.map((collection, idx) => (
-                    <section key={idx} id={collection.id}>
+                {collections.map((collection) => (
+                    <section key={collection.id} id={collection.id}>
                         <motion.h2
                             initial={{ opacity: 0, y: 30 }}
                             whileInView={{ opacity: 1, y: 0 }}
@@ -112,6 +107,7 @@ export default function CollectionsClient() {
 
                         <div className="w-full md:w-24 h-px bg-gradient-to-r from-transparent via-gold to-transparent md:from-gold md:to-transparent mb-12" />
 
+                        {/* DESKTOP GRID */}
                         <div className="hidden md:grid grid-cols-4 gap-10">
                             {collection.images.map((img, i) => (
                                 <motion.div
@@ -127,6 +123,7 @@ export default function CollectionsClient() {
                                             src={img}
                                             alt={collection.title}
                                             fill
+                                            sizes="25vw"
                                             className="object-cover transition-transform duration-700 ease-out hover:scale-105"
                                         />
                                     </div>
@@ -141,6 +138,36 @@ export default function CollectionsClient() {
                                         Enquire Now
                                     </a>
                                 </motion.div>
+                            ))}
+                        </div>
+
+                        {/* MOBILE SCROLL */}
+                        <div className="md:hidden flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 no-scrollbar">
+                            {collection.images.map((img, i) => (
+                                <div
+                                    key={i}
+                                    className="min-w-[80%] snap-center flex flex-col gap-4"
+                                >
+                                    <div className="relative aspect-[3/4] w-full overflow-hidden">
+                                        <Image
+                                            src={img}
+                                            alt={collection.title}
+                                            fill
+                                            sizes="80vw"
+                                            className="object-cover"
+                                        />
+                                    </div>
+
+                                    <a
+                                        href="https://wa.me/917818906577"
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="flex items-center gap-2 text-sm text-ivory/70 hover:text-green-400 transition-colors"
+                                    >
+                                        <FaWhatsapp className="text-lg" />
+                                        Enquire Now
+                                    </a>
+                                </div>
                             ))}
                         </div>
                     </section>
